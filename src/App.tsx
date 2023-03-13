@@ -1,18 +1,13 @@
 // App.tsx
-import React, { useState } from "react";
-// import Navbar from "./Navbar";
-import Blog from "./components/Blog";
-
-type Theme = "light" | "dark";
+import React from "react";
+import { UserProvider } from "./context/UserContext";
+import Dashboard from "./components/Dashboard";
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<Theme>("dark");
-
   return (
-    <div>
-      {/* <Navbar theme={theme} setTheme={setTheme} /> */}
-      <Blog theme={theme} />
-    </div>
+    <UserProvider>
+      <Dashboard />
+    </UserProvider>
   );
 };
 
