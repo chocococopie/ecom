@@ -3,11 +3,18 @@ import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
 const Sidebar: React.FC = () => {
-  const context = useContext(UserContext);
-  if (!context) throw new Error("UserContext not found");
-  const { user } = context;
+  const { user, setUser } = useContext(UserContext)!;
 
-  return <p>Role: {user.role}</p>;
+  const handleChangeRole = () => {
+    setUser({ ...user, role: "Editor" }); // update role
+  };
+
+  return (
+    <>
+      <p>Role: {user.role}</p>
+      <button onClick={handleChangeRole}>Change Role</button>
+    </>
+  );
 };
 
 export default Sidebar;
