@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   if (!context) throw new Error("UserContext not found");
   const { user } = context;
 
-  return <h1>Welcome, {user.name}!</h1>;
+  return <h1>Welcome, {user.role}!</h1>;
 };
 
 export default Header;

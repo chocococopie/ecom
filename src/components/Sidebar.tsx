@@ -5,14 +5,17 @@ import { UserContext } from "../context/UserContext";
 const Sidebar: React.FC = () => {
   const { user, setUser } = useContext(UserContext)!;
 
-  const handleChangeRole = () => {
-    setUser({ ...user, role: "Editor" }); // update role
+  const handleToggleRole = () => {
+    setUser({
+      ...user,
+      role: user.role === "Admin" ? "Editor" : "Admin",
+    }); // toggle role
   };
 
   return (
     <>
       <p>Role: {user.role}</p>
-      <button onClick={handleChangeRole}>Change Role</button>
+      <button onClick={handleToggleRole}>Change Role</button>
     </>
   );
 };
